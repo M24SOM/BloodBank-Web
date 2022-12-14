@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <title>Donation - Blood Bank</title>
+        <script src="assets/js/jquery-3.5.1.min.js"></script>
+		
+		<!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+		
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		
+		<!-- Lineawesome CSS -->
+		<link rel="stylesheet" href="assets/css/line-awesome.min.css">
+		
+		<!-- Datatable CSS -->
+		<link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
+		
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="assets/css/select2.min.css">
+		
+		<!-- Main CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+		
+          
+		<script> 
+			$(function(){
+			  $("#sidebar").load("navbar.html"); 
+			});
+			</script>
+    </head>
+    <body>
+		<!-- Main Wrapper -->
+        <div class="main-wrapper">
+		
+			<!-- Header -->
+           
+			<div id="sidebar"></div>
+           
+			<!-- /Sidebar -->
+			
+			<!-- Page Wrapper -->
+            <div class="page-wrapper">
+			
+				<!-- Page Content -->
+                <div class="content container-fluid">
+				
+					<!-- Page Header -->
+					<div class="page-header">
+						<div class="row align-items-center">
+							<div class="col">
+								<h3 class="page-title">Donation</h3>
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+									<li class="breadcrumb-item active">Donation</li>
+								</ul>
+							</div>
+							<div class="col-auto float-right ml-auto">
+								<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_overtime"><i class="fa fa-plus"></i> Add Donation</a>
+								<div class="view-icons">
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+				<br>
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped custom-table datatable">
+									<thead>
+										<tbody >
+											<tr>
+												<th>#</th>
+												<th>Donner</th>
+												<th>cc</th>
+												<th>type</th>			
+												<th>BloodType</th>
+												<th>Date</th>
+												<th>Action</th>
+	
+												
+											</tr>
+										</tbody>
+										<tbody id="t-bloodtype">
+											
+										</tbody>
+									
+									</thead>
+									
+								</table>
+							</div>
+						</div>
+					</div>
+                </div>
+				<!-- /Page Content -->
+			
+				<!-- Add Client Modal -->
+				<div id="add_client" class="modal custom-modal fade" role="dialog">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Add Client</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+									
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-form-label">First Name <span class="text-danger">*</span></label>
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-form-label">Last Name</label>
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-form-label">Username <span class="text-danger">*</span></label>
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-form-label">Email <span class="text-danger">*</span></label>
+												<input class="form-control floating" type="email">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-form-label">Password</label>
+												<input class="form-control" type="password">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-form-label">Confirm Password</label>
+												<input class="form-control" type="password">
+											</div>
+										</div>
+										<div class="col-md-6">  
+											<div class="form-group">
+												<label class="col-form-label">Client ID <span class="text-danger">*</span></label>
+												<input class="form-control floating" type="text">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-form-label">Phone </label>
+												<input class="form-control" type="text">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="col-form-label">Company Name</label>
+												<input class="form-control" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="table-responsive m-t-15">
+										<table class="table table-striped custom-table">
+											<thead>
+												<tr>
+													<th>Module Permission</th>
+													<th class="text-center">Read</th>
+													<th class="text-center">Write</th>
+													<th class="text-center">Create</th>
+													<th class="text-center">Delete</th>
+													<th class="text-center">Import</th>
+													<th class="text-center">Export</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Projects</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+												</tr>
+												<tr>
+													<td>Tasks</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+												</tr>
+												<tr>
+													<td>Chat</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+												</tr>
+												<tr>
+													<td>Estimates</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+												</tr>
+												<tr>
+													<td>Invoices</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+												</tr>
+												<tr>
+													<td>Timing Sheets</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+													<td class="text-center">
+														<input checked="" type="checkbox">
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="submit-section">
+										<button class="btn btn-primary submit-btn">Submit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Add Client Modal -->
+			
+
+                <!-- add recipiant -->
+                <div id="add_overtime" class="modal custom-modal fade" role="dialog">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Add Donation</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+                                    <!-- <th>#</th>
+                                            <th>Name</th>
+											<th>Birthday</th>
+											<th>Phone</th>				
+											<th>BloodType</th>
+											<th>States</th>
+											<th>Action</th> -->
+									<div class="row">
+										
+										<div class="col-sm-6">
+							
+											<div class="form-group">
+												<label>Donor</label>
+												<select class="select" id="addDonor" >
+													<option>-</option>
+													
+												</select>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>CC</label>
+												<input class="form-control" id="addCc" type="text">
+											</div>
+										</div>
+									</div>
+                                    <div class="row">
+										
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>Date</label>
+												<input class="form-control" id="addDate" type="date">
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>BloodType</label>
+												<select class="select" id="add-bloodtype" >
+													<option>-</option>
+													
+												</select>
+											</div>
+										</div>
+
+									</div>
+					
+									<div class="submit-section">
+										<button class="btn btn-primary submit-btn" id="add-donation">Submit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Edit Client Modal -->
+                
+                <div id="edit_bloodtype" class="modal custom-modal fade" role="dialog">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Edit Recipiant</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+                                    <!-- <th>#</th>
+                                    <th>cc</th>
+                                    <th>type</th>			
+                                    <th>BloodType</th>
+                                    <th>donner</th>
+                                    <th>States</th>
+                                    <th>is healthy</th>
+                                    <th>date</th>
+                                    <th>Action</th> -->
+
+                                        <div class="form-group">
+                                          <label>ID<span class="text-danger"></span></label>
+                                          <input class="form-control" disabled id="donation-id-update" type="text">
+                                                    
+                                     </div>
+									<div class="row">
+										<div class="col-sm-6">
+							
+											<div class="form-group">
+												<label>Donor</label>
+												<select class="select" id="updateDonor" >
+													<option>-</option>
+													
+												</select>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>CC</label>
+												<input class="form-control" id="updateCc" type="text">
+											</div>
+										</div>
+									</div>
+                                    <div class="row">
+										
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>Date</label>
+												<input class="form-control" id="updateDate" type="date">
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>BloodType</label>
+												<select class="select" id="update-bloodtype" >
+													<option>-</option>
+													
+												</select>
+											</div>
+										</div>
+
+									</div>
+									
+
+									<div class="submit-section">
+										<button class="btn btn-primary submit-btn" id="edit-donation-button">Submit</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Edit Client Modal -->
+				
+				<!-- Delete Client Modal -->
+				<div class="modal custom-modal fade" id="delete_client" role="dialog">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-body">
+								<div class="form-header">
+									<h3>Delete Client</h3>
+									<p>Are you sure want to delete?</p>
+								</div>
+								<div class="modal-btn delete-action">
+									<div class="row">
+										<div class="col-6">
+											<a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
+										</div>
+										<div class="col-6">
+											<a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Delete Client Modal -->
+				
+            </div>
+			<!-- /Page Wrapper -->
+			
+        </div>
+		<!-- /Main Wrapper -->
+		
+	
+		
+		<!-- Bootstrap Core JS -->
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- Slimscroll JS -->
+		<script src="assets/js/jquery.slimscroll.min.js"></script>
+		
+		<!-- Datatable JS -->
+		<script src="assets/js/jquery.dataTables.min.js"></script>
+		<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+		
+		<!-- Select2 JS -->
+		<script src="assets/js/select2.min.js"></script>
+		
+		<!-- Custom JS -->
+		<script src="assets/js/app.js"></script>
+
+
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		
+		
+		
+		<!-- Chart JS -->
+		<script src="assets/plugins/morris/morris.min.js"></script>
+		<script src="assets/plugins/raphael/raphael.min.js"></script>
+		<script src="assets/js/chart.js"></script>
+		
+		<!-- Custom JS -->
+		<script src="assets/js/app.js"></script>
+
+		<script src="assets/js/jquery-3.5.1.min.js"></script>
+
+		<!-- Bootstrap Core JS -->
+        
+        <script src="assets/js/bootstrap.min.js"></script>
+
+		<!-- Slimscroll JS -->
+		<script src="assets/js/jquery.slimscroll.min.js"></script>
+		
+		<!-- Select2 JS -->
+		<script src="assets/js/select2.min.js"></script>
+
+        <script src="./donation.js"></script>
+
+    </body>
+</html>
