@@ -1,6 +1,6 @@
 
 // get users
-let uri="http://localhost:8080/donation"
+let uri="http://localhost:8080/record"
 $( document ).ready(function() {
     console.log( "ready!" );
     dropdown();
@@ -40,10 +40,10 @@ $( document ).ready(function() {
                 console.log(item);
                 var $tr = $("<tr></tr>");
                 $tr.append("<td>"+item.id +"</td>");
-                $tr.append("<td>"+item.donor.name+"</td>");
+                $tr.append("<td>"+item.receipt.name+"</td>");
                 $tr.append("<td>"+item.cc+"</td>");
                 $tr.append("<td>"+item.bloodType.name+"</td>");
-                $tr.append("<td>"+item.donor.mobileNo+"</td>");     
+                $tr.append("<td>"+item.receipt.mobileNo+"</td>");     
                 $tr.append("<td>"+item.date+"</td>");
 
          
@@ -75,7 +75,7 @@ $( document ).ready(function() {
 
     $("#edit_bloodtype").modal('show');
     $.ajax({  
-        url: `http://localhost:8080/donation/`+`${id}`,  
+        url: `http://localhost:8080/record/`+`${id}`,  
         type: 'GET',  
         dataType: 'json',  
         success: function (data ) {  
@@ -146,14 +146,14 @@ $( document ).ready(function() {
                 id:$("#add-bloodtype").val(),
                
             },
-            donor: {
+            receipt: {
                 id:$("#addDonor").val(),
                
             },
 
         }
         $.ajax({  
-            url: `http://localhost:8080/donation/add`,  
+            url: `http://localhost:8080/record/add`,  
             type: 'POST',
             contentType :'application/json',
             data: JSON.stringify(oneuser),  
@@ -230,13 +230,13 @@ $( document ).ready(function() {
         }  
     });
     $.ajax({  
-        url: 'http://localhost:8080/donor',  
+        url: 'http://localhost:8080/receipt',  
         type: 'GET',  
         dataType: 'json',  
         success: function (data ) {  
             //console.log(data);
             $("#addDonor").empty()
-            $("#addDonor").append(`<option> Select Donor </option>`)
+            $("#addDonor").append(`<option> Select Recipiant </option>`)
             $("#updateDonor").empty()
             $("#updateDonor").append(`<option> Select State </option>`)
 

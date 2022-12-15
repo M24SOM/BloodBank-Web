@@ -82,7 +82,7 @@ $( document ).ready(function() {
         id: $("#hospital-id-update").val(),
         name:$("#hospital-name-update").val(),
         state: {
-          id:$("state-location-update").val(),
+          id:$("#state-location-update").val(),
        },
 
      

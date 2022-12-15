@@ -3,7 +3,7 @@
 let uri="http://localhost:8080/bloodType"
 $( document ).ready(function() {
     console.log( "ready!" );
-    GetBloodType();
+    GetDrivers();
     $(".btn-cl").on('click', function(){
         $("#update-user").modal('hide');
         $("#add-user").modal('hide');
@@ -16,14 +16,14 @@ $( document ).ready(function() {
          $("#add-user").modal('show');
     })
 
-    $("#add-bloodType").on('click', function(){
+    $("#add-bloodtype").on('click', function(){
 
         addonebloodtype()
 
     })
 });
 
- function GetBloodType(){
+ function GetDrivers(){
     $("#t-bloodtype").empty();
   //  $("#Add-modal-Product").modal("hide");
 
@@ -99,12 +99,12 @@ $( document ).ready(function() {
           console.log("Suuceccfully added");
           // console.log(data);
           $("#edit_bloodtype").modal('hide');
-          GetBloodType(); 
+          GetDrivers(); 
               
         },  
         error: function (request , msg , error) {  
             console.log('Can not post');
-            GetBloodType(); 
+            GetDrivers(); 
         }  
     });
      
@@ -134,13 +134,13 @@ $( document ).ready(function() {
               console.log("Suuceccfully added");
               // console.log(data);
               window.location.reload()
-              GetBloodType(); 
+              GetDrivers(); 
               
                   
             },  
             error: function (request , msg , error) {  
                 console.log('Can not post');
-                GetBloodType(); 
+                GetDrivers(); 
             }  
         }); 
     }else{
@@ -176,13 +176,13 @@ $( document ).ready(function() {
           console.log("Suuceccfully deleted");
           // console.log(data);
           //window.location.reload()
-          GetBloodType(); 
+          GetDrivers(); 
           
               
         },  
         error: function (request , msg , error) {  
             console.log('Can not post');
-            GetBloodType(); 
+            GetDrivers(); 
         }  
     }); 
 

@@ -51,11 +51,11 @@ $( document ).ready(function() {
          
 
 
-                $tr.append(` <td>
-                <button type="button" class="btn btn-warning mr-3 pl-3" onclick="edituser(${item.id})" >Edit</button>
+            //     $tr.append(` <td>
+            //     <button type="button" class="btn btn-warning mr-3 pl-3" onclick="edituser(${item.id})" >Edit</button>
              
 
-            </td>`);
+            // </td>`);
             // <button type="button" class="btn btn-danger mr-3" onclick="deleteuser(${item.id})">Delete</button>
             
              
@@ -255,11 +255,6 @@ $( document ).ready(function() {
             <option value="${item.id}"> ${item.name} </option>`
 
             )
-                
-            
-            
-        
-
             })  
         },  
         error: function (request , msg , error) {  
